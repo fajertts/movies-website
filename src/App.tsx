@@ -1,13 +1,13 @@
-
-import Hero from './pages/Hero'
+import Navbar from "./components/Navbar";
+import Hero from "./pages/Hero";
 
 function App() {
-
   return (
     <>
-     <Hero/>
+      <Navbar />
+      <Hero />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
