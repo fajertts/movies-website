@@ -50,7 +50,7 @@ export default function Hero() {
       {/* content */}
       <div className="relative z-10 max-w-xl pt-40 pl-16 text-white">
 
-        <h1 className="text-5xl font-bold mb-6">
+        <h1 className="text-5xl font-bold mb-6 mt-15">
           {movie.title}
         </h1>
 
