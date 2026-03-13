@@ -1,11 +1,14 @@
 import { Menu, StepForward, X } from "lucide-react";
 import { useState } from "react";
+import { Outlet } from "react-router-dom";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
+    <>
     <nav className="fixed absolute top-0 left-0 w-full bg-gradient-to-b from-black/50 via-black/20 to-transparent text-white z-50 px-20  ">
+      
       <div className="w-full mx-auto flex items-center justify-between p-4">
         {/* Logo */}
         <div className="w-auto h-full my-auto "> <StepForward size={32}/>  </div>
@@ -50,7 +53,11 @@ const Navbar = () => {
           </li>
         </ul>
       )}
+      
     </nav>
+    <Outlet />
+    </>
+    
       );
 };
  

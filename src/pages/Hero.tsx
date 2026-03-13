@@ -1,6 +1,8 @@
 import {  useEffect,useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { tmdb } from "../api/Base";
+import { useNavigate } from "react-router-dom";
+
 
 interface Movie {
   id: number;
@@ -10,6 +12,9 @@ interface Movie {
 }
 
 export default function Hero() {
+
+  const navigate = useNavigate();
+
 
     const [index, setIndex] = useState(0);
     const {data,isLoading} = useQuery({
@@ -60,11 +65,12 @@ export default function Hero() {
 
         <div className="mt-6 flex gap-4">
 
-          <button className="bg-white text-black px-6 py-2 rounded font-semibold hover:bg-gray-200">
-            Play
+          <button className="bg-white text-black px-6 py-2 rounded font-semibold hover:bg-gray-200 cursor-pointer"
+          onClick ={() =>navigate("/Login")}>
+            play
           </button>
 
-          <button className="bg-gray-700/70 px-6 py-2 rounded hover:bg-gray-600">
+          <button className="bg-gray-700/70 px-6 py-2 rounded hover:bg-gray-600 cursor-pointer">
             More Info
           </button>
 
