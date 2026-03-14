@@ -14,7 +14,6 @@ const About = () => {
 
       {/* content */}
       <div className="relative px-8 py-20 max-w-5xl mx-auto">
-        
         {/* title */}
         <h1 className="text-5xl font-bold my-8">About Hoppers :</h1>
 
@@ -32,7 +31,6 @@ const About = () => {
 
         {/* features */}
         <div className="grid md:grid-cols-3 gap-8">
-
           {/* card 1 */}
           <div className="bg-gray-900/80 backdrop-blur p-6 rounded-xl hover:scale-105 transition">
             <div className="mb-4 text-yellow-400">
@@ -51,8 +49,8 @@ const About = () => {
             </div>
             <h2 className="text-2xl font-semibold mb-2">Movie Information</h2>
             <p className="text-gray-400">
-              Get detailed information about your favorite movies including cast,
-              crew, and plot summaries.
+              Get detailed information about your favorite movies including
+              cast, crew, and plot summaries.
             </p>
           </div>
 
@@ -63,10 +61,10 @@ const About = () => {
             </div>
             <h2 className="text-2xl font-semibold mb-2">Modern Tech</h2>
             <p className="text-gray-400">
-              Built using modern technologies like React, TailwindCSS and movie APIs.
+              Built using modern technologies like React, TailwindCSS and movie
+              APIs.
             </p>
           </div>
-
         </div>
       </div>
     </div>
