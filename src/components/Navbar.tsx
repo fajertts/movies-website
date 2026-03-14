@@ -51,20 +51,27 @@ const Navbar = () => {
         {/* Mobile Menu */}
         {isOpen && (
           <ul className="lg:hidden flex flex-col items-center gap-6 pb-6 text-lg">
-            <li>
-              <a href="/" className="hover:text-blue-500">
+       <li>
+              <Link
+                to="/"
+                className="hover:text-blue-500 cursor-pointer text-lg">
                 Home
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="/about" className="hover:text-blue-500">
+              <Link
+                to="About"
+                className="hover:text-blue-500 cursor-pointer text-lg">
                 About
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="/contact" className="hover:text-blue-500">
+              <Link
+                to="/contact"
+                className="hover:text-blue-500 cursor-pointer text-lg"
+              >
                 Contact
-              </a>
+              </Link>
             </li>
           </ul>
         )}
