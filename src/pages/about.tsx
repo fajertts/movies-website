@@ -32,7 +32,7 @@ const About = () => {
         {/* features */}
         <div className="grid md:grid-cols-3 gap-8">
           {/* card 1 */}
-          <div className="bg-gray-900/80 backdrop-blur p-6 rounded-xl hover:scale-105 transition">
+          <div className="bg-gray-900/80 backdrop-blur p-6 rounded-xl hover:scale-105 transition cursor-point ">
             <div className="mb-4 text-yellow-400">
               <Film size={32} />
             </div>
@@ -43,7 +43,7 @@ const About = () => {
           </div>
 
           {/* card 2 */}
-          <div className="bg-gray-900/80 backdrop-blur p-6 rounded-xl hover:scale-105 transition">
+          <div className="bg-gray-900/80 backdrop-blur p-6 rounded-xl hover:scale-105 transition cursor-point ">
             <div className="mb-4 text-yellow-400">
               <BadgeInfo size={32} />
             </div>
@@ -55,7 +55,7 @@ const About = () => {
           </div>
 
           {/* card 3 */}
-          <div className="bg-gray-900/80 backdrop-blur p-6 rounded-xl hover:scale-105 transition">
+          <div className="bg-gray-900/80 backdrop-blur p-6 rounded-xl hover:scale-105 transition cursor-point ">
             <div className="mb-4 text-yellow-400">
               <Zap size={32} />
             </div>
