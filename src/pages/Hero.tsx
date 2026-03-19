@@ -1,8 +1,8 @@
-import {  useEffect,useState } from "react";
+import { useEffect, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { tmdb } from "../api/Base";
+import { tmdb } from "../api/base";
 import { useNavigate } from "react-router-dom";
-
+import Trending from "../components/footer/Trending";
 
 interface Movie {
   id: number;
@@ -12,40 +12,37 @@ interface Movie {
 }
 
 export default function Hero() {
-
   const navigate = useNavigate();
 
+  const [index, setIndex] = useState(0);
+  const { data, isLoading } = useQuery({
+    queryKey: ["trending"],
+    queryFn: async () => {
+      const response = await tmdb().get("/trending/movie/week");
+      return response.data.results as Movie[];
+    },
+  });
 
-    const [index, setIndex] = useState(0);
-    const {data,isLoading} = useQuery({
-        queryKey: ["trending"],
-        queryFn: async () => {
-            const response = await tmdb.get("/trending/movie/week");
-            return response.data.results as Movie[];
-        }
-    });
+  useEffect(() => {
+    if (!data) return;
 
-    useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prevIndex) => (prevIndex + 1) % data.length);
+    }, 10000);
 
-        if(!data) return;
+    return () => clearInterval(interval);
+  }, [data]);
 
-        const interval = setInterval(() => {
-            setIndex((prevIndex) => (prevIndex + 1) % data.length);
-        }, 10000);
+  if (isLoading || !data) return <div>Something Went Wrong 404..</div>;
 
-        return () => clearInterval(interval);
-    }, [data]);
+  const movie = data[index];
 
-    if(isLoading|| !data) return <div>Something Went Wrong 404..</div>;
+  const background = movie?.backdrop_path
+    ? `https://image.tmdb.org/t/p/original${movie.backdrop_path}`
+    : "";
 
-    const movie = data[index];
-
-    const background = movie?.backdrop_path
-  ? `https://image.tmdb.org/t/p/original${movie.backdrop_path}`
-  : "";
-
-    return (
-           <section
+  return (
+    <section
       className="w-full relative h-screen bg-cover bg-center transition-all duration-1000"
       style={{ backgroundImage: `url(${background})` }}
     >
@@ -54,27 +51,26 @@ export default function Hero() {
 
       {/* content */}
       <div className="relative z-10 max-w-xl pt-40 pl-16 text-white">
+        <h1 className="text-5xl font-bold mb-6 mt-15">{movie.title}</h1>
 
-        <h1 className="text-5xl font-bold mb-6 mt-15">
-          {movie.title}
-        </h1>
-
-        <p className="text-lg leading-relaxed line-clamp-4">
-          {movie.overview}
-        </p>
+        <p className="text-lg leading-relaxed line-clamp-4">{movie.overview}</p>
 
         <div className="mt-6 flex gap-4">
-
-          <button className="bg-white text-black px-6 py-2 rounded font-semibold hover:bg-gray-200 cursor-pointer"
-          onClick ={() =>navigate("/Login")}>
+          <button
+            className="bg-white text-black px-6 py-2 rounded font-semibold hover:bg-gray-200 cursor-pointer"
+            onClick={() => navigate("/Login")}
+          >
             play
           </button>
 
           <button className="bg-gray-700/70 px-6 py-2 rounded hover:bg-gray-600 cursor-pointer">
             More Info
           </button>
-
         </div>
       </div>
-    </section>);
+      <div className="bg-black min-h-screen">
+        <Trending />
+      </div>
+    </section>
+  );
 }

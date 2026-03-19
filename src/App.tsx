@@ -1,25 +1,18 @@
-import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from "react-router-dom";
-import Navbar from "./components/Navbar";
+import { Route, Routes } from "react-router-dom";
+import About from "./pages/about";
 import Hero from "./pages/Hero";
 import Login from "./pages/Login";
-import About from "./pages/about";
+import { Layout } from "./layout/Layout";
 
-const router = createBrowserRouter(
-  createRoutesFromElements(
-    <Route path="/" element={<Navbar />}>
-      <Route index element={<Hero/>} />
-       <Route path="login" element={<Login />} />
-            <Route path="About" element={<About />} />
-    </Route>,
-  ),
-);
 function App() {
   return (
-    <>
-     <RouterProvider router={router} />
-      
-       
-    </>
+    <Layout>
+      <Routes>
+        <Route path="/" element={<Hero />} />
+        <Route path="login" element={<Login />} />
+        <Route path="about" element={<About />} />
+      </Routes>
+    </Layout>
   );
 }
 

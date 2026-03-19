@@ -20,14 +20,16 @@ const Navbar = () => {
             <li>
               <Link
                 to="/"
-                className="hover:text-blue-500 cursor-pointer text-lg">
+                className="hover:text-blue-500 cursor-pointer text-lg"
+              >
                 Home
               </Link>
             </li>
             <li>
               <Link
                 to="About"
-                className="hover:text-blue-500 cursor-pointer text-lg">
+                className="hover:text-blue-500 cursor-pointer text-lg"
+              >
                 About
               </Link>
             </li>
@@ -51,17 +53,19 @@ const Navbar = () => {
         {/* Mobile Menu */}
         {isOpen && (
           <ul className="lg:hidden flex flex-col items-center gap-6 pb-6 text-lg">
-       <li>
+            <li>
               <Link
                 to="/"
-                className="hover:text-blue-500 cursor-pointer text-lg">
+                className="hover:text-blue-500 cursor-pointer text-lg"
+              >
                 Home
               </Link>
             </li>
             <li>
               <Link
-                to="About"
-                className="hover:text-blue-500 cursor-pointer text-lg">
+                to="/about"
+                className="hover:text-blue-500 cursor-pointer text-lg"
+              >
                 About
               </Link>
             </li>
